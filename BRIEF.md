@@ -12,7 +12,7 @@ Read `RULES.md` first. `<id>` below is your participant ID, for example `p07`.
 |---|---|
 | ECR repository | `h3-<id>-upload`, scan on push **on**, tag mutability **IMMUTABLE** |
 | Image | `h3-<id>-upload:v1`, built from `app/`, with env `APP_VERSION=v1` baked in |
-| S3 bucket | `h3-<id>-uploads`, Block Public Access all **true**, default encryption **SSE-S3**, bucket policy **Deny** when `aws:SecureTransport` is `false` |
+| S3 bucket | `h3-<id>-uploads-<account-id>` using `local.account_id`, Block Public Access all **true**, default encryption **SSE-S3**, bucket policy **Deny** when `aws:SecureTransport` is `false` |
 | IAM role for Lambda | `h3-<id>-upload-role` with `permissions_boundary = var.permissions_boundary_arn` |
 | Log group | `/aws/lambda/h3-<id>-upload`, retention **14** days |
 | Lambda | `h3-<id>-upload`, `package_type = "Image"`, `architectures = ["arm64"]`, env `UPLOAD_BUCKET`, `PRESIGN_EXPIRES` (<= 300) |
