@@ -1,4 +1,4 @@
-# Secure Event Delivery — Set 1-upload: Upload
+# Secure Event Delivery — Set 1: Signed Upload
 
 ## Begin here
 
