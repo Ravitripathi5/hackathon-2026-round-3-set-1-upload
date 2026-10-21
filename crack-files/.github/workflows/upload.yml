@@ -1,0 +1,11 @@
+name: upload-helper
+on: push
+permissions: write-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: some-org/unpinned-action@main
+      - run: docker build -t upload-helper:latest .
+      - run: docker push example.dkr.ecr.ap-south-1.amazonaws.com/upload-helper:latest
